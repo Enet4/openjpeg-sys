@@ -170,7 +170,7 @@ pub enum CODEC_FORMAT {
 }
 #[doc = "Supported codec"]
 pub use self::CODEC_FORMAT as OPJ_CODEC_FORMAT;
-#[doc = "Callback function prototype for events\n# Arguments\n\n* `msg` -               Event message\n* `client_data` -       Client object where will be return the event message"]
+#[doc = "Callback function prototype for events\n\n# Arguments\n\n* `msg` -               Event message\n* `client_data` -       Client object where will be return the event message"]
 pub type opj_msg_callback = ::std::option::Option<
     unsafe extern "C" fn(
         msg: *const ::std::os::raw::c_char,
@@ -831,7 +831,7 @@ extern "C" {
     pub fn opj_version() -> *const ::std::os::raw::c_char;
 }
 extern "C" {
-    #[doc = "Create an image\n# Arguments\n\n* `numcmpts` -      number of components\n* `cmptparms` -     components parameters\n* `clrspc` -        image color space\n# Returns\n\nreturns      a new image structure if successful, returns NULL otherwise"]
+    #[doc = "Create an image\n\n# Arguments\n\n* `numcmpts` -      number of components\n* `cmptparms` -     components parameters\n* `clrspc` -        image color space\n\n# Returns\n\nreturns      a new image structure if successful, returns NULL otherwise"]
     pub fn opj_image_create(
         numcmpts: OPJ_UINT32,
         cmptparms: *mut opj_image_cmptparm_t,
@@ -839,11 +839,11 @@ extern "C" {
     ) -> *mut opj_image_t;
 }
 extern "C" {
-    #[doc = "Deallocate any resources associated with an image\n# Arguments\n\n* `image` -         image to be destroyed"]
+    #[doc = "Deallocate any resources associated with an image\n\n# Arguments\n\n* `image` -         image to be destroyed"]
     pub fn opj_image_destroy(image: *mut opj_image_t);
 }
 extern "C" {
-    #[doc = "Creates an image without allocating memory for the image (used in the new version of the library).\n# Arguments\n\n* `numcmpts` -    the number of components\n* `cmptparms` -   the components parameters\n* `clrspc` -      the image color space\n# Returns\n\na new image structure if successful, NULL otherwise."]
+    #[doc = "Creates an image without allocating memory for the image (used in the new version of the library).\n\n# Arguments\n\n* `numcmpts` -    the number of components\n* `cmptparms` -   the components parameters\n* `clrspc` -      the image color space\n\n# Returns\n\na new image structure if successful, NULL otherwise."]
     pub fn opj_image_tile_create(
         numcmpts: OPJ_UINT32,
         cmptparms: *mut opj_image_cmptparm_t,
@@ -851,55 +851,55 @@ extern "C" {
     ) -> *mut opj_image_t;
 }
 extern "C" {
-    #[doc = "Allocator for opj_image_t->comps[].data\nTo be paired with opj_image_data_free.\n# Arguments\n\n* `size` -    number of bytes to allocate\n# Returns\n\na new pointer if successful, NULL otherwise.\n> **Since** 2.2.0"]
+    #[doc = "Allocator for opj_image_t->comps[].data\nTo be paired with opj_image_data_free.\n\n# Arguments\n\n* `size` -    number of bytes to allocate\n\n# Returns\n\na new pointer if successful, NULL otherwise.\n> **Since** 2.2.0"]
     pub fn opj_image_data_alloc(size: OPJ_SIZE_T) -> *mut ::std::os::raw::c_void;
 }
 extern "C" {
-    #[doc = "Destructor for opj_image_t->comps[].data\nTo be paired with opj_image_data_alloc.\n# Arguments\n\n* `ptr` -    Pointer to free\n> **Since** 2.2.0"]
+    #[doc = "Destructor for opj_image_t->comps[].data\nTo be paired with opj_image_data_alloc.\n\n# Arguments\n\n* `ptr` -    Pointer to free\n> **Since** 2.2.0"]
     pub fn opj_image_data_free(ptr: *mut ::std::os::raw::c_void);
 }
 extern "C" {
-    #[doc = "Creates an abstract stream. This function does nothing except allocating memory and initializing the abstract stream.\n# Arguments\n\n* `p_is_input` -      if set to true then the stream will be an input stream, an output stream else.\n# Returns\n\na stream object."]
+    #[doc = "Creates an abstract stream. This function does nothing except allocating memory and initializing the abstract stream.\n\n# Arguments\n\n* `p_is_input` -      if set to true then the stream will be an input stream, an output stream else.\n\n# Returns\n\na stream object."]
     pub fn opj_stream_default_create(p_is_input: OPJ_BOOL) -> *mut opj_stream_t;
 }
 extern "C" {
-    #[doc = "Creates an abstract stream. This function does nothing except allocating memory and initializing the abstract stream.\n# Arguments\n\n* `p_buffer_size` -  FIXME DOC\n* `p_is_input` -      if set to true then the stream will be an input stream, an output stream else.\n# Returns\n\na stream object."]
+    #[doc = "Creates an abstract stream. This function does nothing except allocating memory and initializing the abstract stream.\n\n# Arguments\n\n* `p_buffer_size` -  FIXME DOC\n* `p_is_input` -      if set to true then the stream will be an input stream, an output stream else.\n\n# Returns\n\na stream object."]
     pub fn opj_stream_create(p_buffer_size: OPJ_SIZE_T, p_is_input: OPJ_BOOL) -> *mut opj_stream_t;
 }
 extern "C" {
-    #[doc = "Destroys a stream created by opj_create_stream. This function does NOT close the abstract stream. If needed the user must\nclose its own implementation of the stream.\n# Arguments\n\n* `p_stream` -    the stream to destroy."]
+    #[doc = "Destroys a stream created by opj_create_stream. This function does NOT close the abstract stream. If needed the user must\nclose its own implementation of the stream.\n\n# Arguments\n\n* `p_stream` -    the stream to destroy."]
     pub fn opj_stream_destroy(p_stream: *mut opj_stream_t);
 }
 extern "C" {
-    #[doc = "Sets the given function to be used as a read function.\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a read function."]
+    #[doc = "Sets the given function to be used as a read function.\n\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a read function."]
     pub fn opj_stream_set_read_function(
         p_stream: *mut opj_stream_t,
         p_function: opj_stream_read_fn,
     );
 }
 extern "C" {
-    #[doc = "Sets the given function to be used as a write function.\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a write function."]
+    #[doc = "Sets the given function to be used as a write function.\n\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a write function."]
     pub fn opj_stream_set_write_function(
         p_stream: *mut opj_stream_t,
         p_function: opj_stream_write_fn,
     );
 }
 extern "C" {
-    #[doc = "Sets the given function to be used as a skip function.\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a skip function."]
+    #[doc = "Sets the given function to be used as a skip function.\n\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a skip function."]
     pub fn opj_stream_set_skip_function(
         p_stream: *mut opj_stream_t,
         p_function: opj_stream_skip_fn,
     );
 }
 extern "C" {
-    #[doc = "Sets the given function to be used as a seek function, the stream is then seekable,\nusing SEEK_SET behavior.\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a skip function."]
+    #[doc = "Sets the given function to be used as a seek function, the stream is then seekable,\nusing SEEK_SET behavior.\n\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_function` -  the function to use a skip function."]
     pub fn opj_stream_set_seek_function(
         p_stream: *mut opj_stream_t,
         p_function: opj_stream_seek_fn,
     );
 }
 extern "C" {
-    #[doc = "Sets the given data to be used as a user data for the stream.\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_data` -      the data to set.\n* `p_function` -  the function to free p_data when opj_stream_destroy() is called."]
+    #[doc = "Sets the given data to be used as a user data for the stream.\n\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `p_data` -      the data to set.\n* `p_function` -  the function to free p_data when opj_stream_destroy() is called."]
     pub fn opj_stream_set_user_data(
         p_stream: *mut opj_stream_t,
         p_data: *mut ::std::os::raw::c_void,
@@ -907,18 +907,18 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = "Sets the length of the user data for the stream.\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `data_length` - length of the user_data."]
+    #[doc = "Sets the length of the user data for the stream.\n\n# Arguments\n\n* `p_stream` -    the stream to modify\n* `data_length` - length of the user_data."]
     pub fn opj_stream_set_user_data_length(p_stream: *mut opj_stream_t, data_length: OPJ_UINT64);
 }
 extern "C" {
-    #[doc = "Create a stream from a file identified with its filename with default parameters (helper function)\n# Arguments\n\n* `fname` -             the filename of the file to stream\n* `p_is_read_stream` -  whether the stream is a read stream (true) or not (false)"]
+    #[doc = "Create a stream from a file identified with its filename with default parameters (helper function)\n\n# Arguments\n\n* `fname` -             the filename of the file to stream\n* `p_is_read_stream` -  whether the stream is a read stream (true) or not (false)"]
     pub fn opj_stream_create_default_file_stream(
         fname: *const ::std::os::raw::c_char,
         p_is_read_stream: OPJ_BOOL,
     ) -> *mut opj_stream_t;
 }
 extern "C" {
-    #[doc = "Create a stream from a file identified with its filename with a specific buffer size\n# Arguments\n\n* `fname` -             the filename of the file to stream\n* `p_buffer_size` -     size of the chunk used to stream\n* `p_is_read_stream` -  whether the stream is a read stream (true) or not (false)"]
+    #[doc = "Create a stream from a file identified with its filename with a specific buffer size\n\n# Arguments\n\n* `fname` -             the filename of the file to stream\n* `p_buffer_size` -     size of the chunk used to stream\n* `p_is_read_stream` -  whether the stream is a read stream (true) or not (false)"]
     pub fn opj_stream_create_file_stream(
         fname: *const ::std::os::raw::c_char,
         p_buffer_size: OPJ_SIZE_T,
@@ -926,7 +926,7 @@ extern "C" {
     ) -> *mut opj_stream_t;
 }
 extern "C" {
-    #[doc = "Set the info handler use by openjpeg.\n# Arguments\n\n* `p_codec` -       the codec previously initialise\n* `p_callback` -    the callback function which will be used\n* `p_user_data` -   client object where will be returned the message"]
+    #[doc = "Set the info handler use by openjpeg.\n\n# Arguments\n\n* `p_codec` -       the codec previously initialise\n* `p_callback` -    the callback function which will be used\n* `p_user_data` -   client object where will be returned the message"]
     pub fn opj_set_info_handler(
         p_codec: *mut opj_codec_t,
         p_callback: opj_msg_callback,
@@ -934,7 +934,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Set the warning handler use by openjpeg.\n# Arguments\n\n* `p_codec` -       the codec previously initialise\n* `p_callback` -    the callback function which will be used\n* `p_user_data` -   client object where will be returned the message"]
+    #[doc = "Set the warning handler use by openjpeg.\n\n# Arguments\n\n* `p_codec` -       the codec previously initialise\n* `p_callback` -    the callback function which will be used\n* `p_user_data` -   client object where will be returned the message"]
     pub fn opj_set_warning_handler(
         p_codec: *mut opj_codec_t,
         p_callback: opj_msg_callback,
@@ -942,7 +942,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Set the error handler use by openjpeg.\n# Arguments\n\n* `p_codec` -       the codec previously initialise\n* `p_callback` -    the callback function which will be used\n* `p_user_data` -   client object where will be returned the message"]
+    #[doc = "Set the error handler use by openjpeg.\n\n# Arguments\n\n* `p_codec` -       the codec previously initialise\n* `p_callback` -    the callback function which will be used\n* `p_user_data` -   client object where will be returned the message"]
     pub fn opj_set_error_handler(
         p_codec: *mut opj_codec_t,
         p_callback: opj_msg_callback,
@@ -950,41 +950,41 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Creates a J2K/JP2 decompression structure\n# Arguments\n\n* `format` -        Decoder to select\n# Returns\n\nReturns a handle to a decompressor if successful, returns NULL otherwise"]
+    #[doc = "Creates a J2K/JP2 decompression structure\n\n# Arguments\n\n* `format` -        Decoder to select\n\n# Returns\n\nReturns a handle to a decompressor if successful, returns NULL otherwise"]
     pub fn opj_create_decompress(format: OPJ_CODEC_FORMAT) -> *mut opj_codec_t;
 }
 extern "C" {
-    #[doc = "Destroy a decompressor handle\n# Arguments\n\n* `p_codec` -         decompressor handle to destroy"]
+    #[doc = "Destroy a decompressor handle\n\n# Arguments\n\n* `p_codec` -         decompressor handle to destroy"]
     pub fn opj_destroy_codec(p_codec: *mut opj_codec_t);
 }
 extern "C" {
-    #[doc = "Read after the codestream if necessary\n# Arguments\n\n* `p_codec` -         the JPEG2000 codec to read.\n* `p_stream` -        the JPEG2000 stream."]
+    #[doc = "Read after the codestream if necessary\n\n# Arguments\n\n* `p_codec` -         the JPEG2000 codec to read.\n* `p_stream` -        the JPEG2000 stream."]
     pub fn opj_end_decompress(p_codec: *mut opj_codec_t, p_stream: *mut opj_stream_t) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Set decoding parameters to default values\n# Arguments\n\n* `parameters` - Decompression parameters"]
+    #[doc = "Set decoding parameters to default values\n\n# Arguments\n\n* `parameters` - Decompression parameters"]
     pub fn opj_set_default_decoder_parameters(parameters: *mut opj_dparameters_t);
 }
 extern "C" {
-    #[doc = "Setup the decoder with decompression parameters provided by the user and with the message handler\nprovided by the user.\n# Arguments\n\n* `p_codec` -       decompressor handler\n* `parameters` -    decompression parameters\n# Returns\n\ntrue         if the decoder is correctly set"]
+    #[doc = "Setup the decoder with decompression parameters provided by the user and with the message handler\nprovided by the user.\n\n# Arguments\n\n* `p_codec` -       decompressor handler\n* `parameters` -    decompression parameters\n\n# Returns\n\ntrue         if the decoder is correctly set"]
     pub fn opj_setup_decoder(
         p_codec: *mut opj_codec_t,
         parameters: *mut opj_dparameters_t,
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Set strict decoding parameter for this decoder.  If strict decoding is enabled, partial bit\nstreams will fail to decode.  If strict decoding is disabled, the decoder will decode partial\nbitstreams as much as possible without erroring\n# Arguments\n\n* `p_codec` -       decompressor handler\n* `strict` -        OPJ_TRUE to enable strict decoding, OPJ_FALSE to disable\n# Returns\n\ntrue         if the decoder is correctly set"]
+    #[doc = "Set strict decoding parameter for this decoder.  If strict decoding is enabled, partial bit\nstreams will fail to decode.  If strict decoding is disabled, the decoder will decode partial\nbitstreams as much as possible without erroring\n\n# Arguments\n\n* `p_codec` -       decompressor handler\n* `strict` -        OPJ_TRUE to enable strict decoding, OPJ_FALSE to disable\n\n# Returns\n\ntrue         if the decoder is correctly set"]
     pub fn opj_decoder_set_strict_mode(p_codec: *mut opj_codec_t, strict: OPJ_BOOL) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Allocates worker threads for the compressor/decompressor.\nBy default, only the main thread is used. If this function is not used,\nbut the OPJ_NUM_THREADS environment variable is set, its value will be\nused to initialize the number of threads. The value can be either an integer\nnumber, or \"ALL_CPUS\". If OPJ_NUM_THREADS is set and this function is called,\nthis function will override the behaviour of the environment variable.\nThis function must be called after opj_setup_decoder() and\nbefore opj_read_header() for the decoding side, or after opj_setup_encoder()\nand before opj_start_compress() for the encoding side.\n# Arguments\n\n* `p_codec` -       decompressor or compressor handler\n* `num_threads` -   number of threads.\n# Returns\n\nOPJ_TRUE     if the function is successful."]
+    #[doc = "Allocates worker threads for the compressor/decompressor.\nBy default, only the main thread is used. If this function is not used,\nbut the OPJ_NUM_THREADS environment variable is set, its value will be\nused to initialize the number of threads. The value can be either an integer\nnumber, or \"ALL_CPUS\". If OPJ_NUM_THREADS is set and this function is called,\nthis function will override the behaviour of the environment variable.\nThis function must be called after opj_setup_decoder() and\nbefore opj_read_header() for the decoding side, or after opj_setup_encoder()\nand before opj_start_compress() for the encoding side.\n\n# Arguments\n\n* `p_codec` -       decompressor or compressor handler\n* `num_threads` -   number of threads.\n\n# Returns\n\nOPJ_TRUE     if the function is successful."]
     pub fn opj_codec_set_threads(
         p_codec: *mut opj_codec_t,
         num_threads: ::std::os::raw::c_int,
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Decodes an image header.\n# Arguments\n\n* `p_stream` -        the jpeg2000 stream.\n* `p_codec` -         the jpeg2000 codec to read.\n* `p_image` -         the image structure initialized with the characteristics of encoded image.\n# Returns\n\ntrue             if the main header of the codestream and the JP2 header is correctly read."]
+    #[doc = "Decodes an image header.\n\n# Arguments\n\n* `p_stream` -        the jpeg2000 stream.\n* `p_codec` -         the jpeg2000 codec to read.\n* `p_image` -         the image structure initialized with the characteristics of encoded image.\n\n# Returns\n\ntrue             if the main header of the codestream and the JP2 header is correctly read."]
     pub fn opj_read_header(
         p_stream: *mut opj_stream_t,
         p_codec: *mut opj_codec_t,
@@ -992,7 +992,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Restrict the number of components to decode.\nThis function should be called after opj_read_header().\nThis function enables to restrict the set of decoded components to the\nspecified indices.\nNote that the current implementation (apply_color_transforms == OPJ_FALSE)\nis such that neither the multi-component transform at codestream level,\nnor JP2 channel transformations will be applied.\nConsequently the indices are relative to the codestream.\nNote: opj_decode_tile_data() should not be used together with opj_set_decoded_components().\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec to read.\n* `numcomps` -        Size of the comps_indices array.\n* `comps_indices` -   Array of numcomps values representing the indices\nof the components to decode (relative to the\ncodestream, starting at 0)\n* `apply_color_transforms` - Whether multi-component transform at codestream level\nor JP2 channel transformations should be applied.\nCurrently this parameter should be set to OPJ_FALSE.\nSetting it to OPJ_TRUE will result in an error.\n# Returns\n\nOPJ_TRUE         in case of success."]
+    #[doc = "Restrict the number of components to decode.\nThis function should be called after opj_read_header().\nThis function enables to restrict the set of decoded components to the\nspecified indices.\nNote that the current implementation (apply_color_transforms == OPJ_FALSE)\nis such that neither the multi-component transform at codestream level,\nnor JP2 channel transformations will be applied.\nConsequently the indices are relative to the codestream.\nNote: opj_decode_tile_data() should not be used together with opj_set_decoded_components().\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec to read.\n* `numcomps` -        Size of the comps_indices array.\n* `comps_indices` -   Array of numcomps values representing the indices\nof the components to decode (relative to the\ncodestream, starting at 0)\n* `apply_color_transforms` - Whether multi-component transform at codestream level\nor JP2 channel transformations should be applied.\nCurrently this parameter should be set to OPJ_FALSE.\nSetting it to OPJ_TRUE will result in an error.\n\n# Returns\n\nOPJ_TRUE         in case of success."]
     pub fn opj_set_decoded_components(
         p_codec: *mut opj_codec_t,
         numcomps: OPJ_UINT32,
@@ -1001,7 +1001,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Sets the given area to be decoded. This function should be called right after opj_read_header and before any tile header reading.\nThe coordinates passed to this function should be expressed in the reference grid,\nthat is to say at the highest resolution level, even if requesting the image at lower\nresolution levels.\nGenerally opj_set_decode_area() should be followed by opj_decode(), and the\ncodec cannot be re-used.\nIn the particular case of an image made of a single tile, several sequences of\ncalls to opoj_set_decode_area() and opj_decode() are allowed, and will bring\nperformance improvements when reading an image by chunks.\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_image` -         the decoded image previously set by opj_read_header\n* `p_start_x` -       the left position of the rectangle to decode (in image coordinates).\n* `p_end_x` -         the right position of the rectangle to decode (in image coordinates).\n* `p_start_y` -       the up position of the rectangle to decode (in image coordinates).\n* `p_end_y` -         the bottom position of the rectangle to decode (in image coordinates).\n# Returns\n\ntrue            if the area could be set."]
+    #[doc = "Sets the given area to be decoded. This function should be called right after opj_read_header and before any tile header reading.\nThe coordinates passed to this function should be expressed in the reference grid,\nthat is to say at the highest resolution level, even if requesting the image at lower\nresolution levels.\nGenerally opj_set_decode_area() should be followed by opj_decode(), and the\ncodec cannot be re-used.\nIn the particular case of an image made of a single tile, several sequences of\ncalls to opoj_set_decode_area() and opj_decode() are allowed, and will bring\nperformance improvements when reading an image by chunks.\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_image` -         the decoded image previously set by opj_read_header\n* `p_start_x` -       the left position of the rectangle to decode (in image coordinates).\n* `p_end_x` -         the right position of the rectangle to decode (in image coordinates).\n* `p_start_y` -       the up position of the rectangle to decode (in image coordinates).\n* `p_end_y` -         the bottom position of the rectangle to decode (in image coordinates).\n\n# Returns\n\ntrue            if the area could be set."]
     pub fn opj_set_decode_area(
         p_codec: *mut opj_codec_t,
         p_image: *mut opj_image_t,
@@ -1012,7 +1012,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Decode an image from a JPEG-2000 codestream\n# Arguments\n\n* `p_decompressor` -    decompressor handle\n* `p_stream` -          Input buffer stream\n* `p_image` -           the decoded image\n# Returns\n\ntrue if success, otherwise false"]
+    #[doc = "Decode an image from a JPEG-2000 codestream\n\n# Arguments\n\n* `p_decompressor` -    decompressor handle\n* `p_stream` -          Input buffer stream\n* `p_image` -           the decoded image\n\n# Returns\n\ntrue if success, otherwise false"]
     pub fn opj_decode(
         p_decompressor: *mut opj_codec_t,
         p_stream: *mut opj_stream_t,
@@ -1020,7 +1020,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Get the decoded tile from the codec\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_stream` -        input stream\n* `p_image` -         output image\n* `tile_index` -      index of the tile which will be decode\n# Returns\n\ntrue if success, otherwise false"]
+    #[doc = "Get the decoded tile from the codec\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_stream` -        input stream\n* `p_image` -         output image\n* `tile_index` -      index of the tile which will be decode\n\n# Returns\n\ntrue if success, otherwise false"]
     pub fn opj_get_decoded_tile(
         p_codec: *mut opj_codec_t,
         p_stream: *mut opj_stream_t,
@@ -1029,14 +1029,14 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Set the resolution factor of the decoded image\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `res_factor` -      resolution factor to set\n# Returns\n\ntrue if success, otherwise false"]
+    #[doc = "Set the resolution factor of the decoded image\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `res_factor` -      resolution factor to set\n\n# Returns\n\ntrue if success, otherwise false"]
     pub fn opj_set_decoded_resolution_factor(
         p_codec: *mut opj_codec_t,
         res_factor: OPJ_UINT32,
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Writes a tile with the given data.\n# Arguments\n\n* `p_codec` -             the jpeg2000 codec.\n* `p_tile_index` -        the index of the tile to write. At the moment, the tiles must be written from 0 to n-1 in sequence.\n* `p_data` -              pointer to the data to write. Data is arranged in sequence, data_comp0, then data_comp1, then ... NO INTERLEAVING should be set.\n* `p_data_size` -         this value os used to make sure the data being written is correct. The size must be equal to the sum for each component of\ntile_width * tile_height * component_size. component_size can be 1,2 or 4 bytes, depending on the precision of the given component.\n* `p_stream` -            the stream to write data to.\n# Returns\n\ntrue if the data could be written."]
+    #[doc = "Writes a tile with the given data.\n\n# Arguments\n\n* `p_codec` -             the jpeg2000 codec.\n* `p_tile_index` -        the index of the tile to write. At the moment, the tiles must be written from 0 to n-1 in sequence.\n* `p_data` -              pointer to the data to write. Data is arranged in sequence, data_comp0, then data_comp1, then ... NO INTERLEAVING should be set.\n* `p_data_size` -         this value os used to make sure the data being written is correct. The size must be equal to the sum for each component of\ntile_width * tile_height * component_size. component_size can be 1,2 or 4 bytes, depending on the precision of the given component.\n* `p_stream` -            the stream to write data to.\n\n# Returns\n\ntrue if the data could be written."]
     pub fn opj_write_tile(
         p_codec: *mut opj_codec_t,
         p_tile_index: OPJ_UINT32,
@@ -1046,7 +1046,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Reads a tile header. This function is compulsory and allows one to know the size of the tile that will be decoded.\nThe user may need to refer to the image got by opj_read_header to understand the size being taken by the tile.\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_tile_index` -    pointer to a value that will hold the index of the tile being decoded, in case of success.\n* `p_data_size` -     pointer to a value that will hold the maximum size of the decoded data, in case of success. In case\nof truncated codestreams, the actual number of bytes decoded may be lower. The computation of the size is the same\nas depicted in opj_write_tile.\n* `p_tile_x0` -       pointer to a value that will hold the x0 pos of the tile (in the image).\n* `p_tile_y0` -       pointer to a value that will hold the y0 pos of the tile (in the image).\n* `p_tile_x1` -       pointer to a value that will hold the x1 pos of the tile (in the image).\n* `p_tile_y1` -       pointer to a value that will hold the y1 pos of the tile (in the image).\n* `p_nb_comps` -      pointer to a value that will hold the number of components in the tile.\n* `p_should_go_on` -  pointer to a boolean that will hold the fact that the decoding should go on. In case the\ncodestream is over at the time of the call, the value will be set to false. The user should then stop\nthe decoding.\n* `p_stream` -        the stream to decode.\n# Returns\n\ntrue            if the tile header could be decoded. In case the decoding should end, the returned value is still true.\nreturning false may be the result of a shortage of memory or an internal error."]
+    #[doc = "Reads a tile header. This function is compulsory and allows one to know the size of the tile that will be decoded.\nThe user may need to refer to the image got by opj_read_header to understand the size being taken by the tile.\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_tile_index` -    pointer to a value that will hold the index of the tile being decoded, in case of success.\n* `p_data_size` -     pointer to a value that will hold the maximum size of the decoded data, in case of success. In case\nof truncated codestreams, the actual number of bytes decoded may be lower. The computation of the size is the same\nas depicted in opj_write_tile.\n* `p_tile_x0` -       pointer to a value that will hold the x0 pos of the tile (in the image).\n* `p_tile_y0` -       pointer to a value that will hold the y0 pos of the tile (in the image).\n* `p_tile_x1` -       pointer to a value that will hold the x1 pos of the tile (in the image).\n* `p_tile_y1` -       pointer to a value that will hold the y1 pos of the tile (in the image).\n* `p_nb_comps` -      pointer to a value that will hold the number of components in the tile.\n* `p_should_go_on` -  pointer to a boolean that will hold the fact that the decoding should go on. In case the\ncodestream is over at the time of the call, the value will be set to false. The user should then stop\nthe decoding.\n* `p_stream` -        the stream to decode.\n\n# Returns\n\ntrue            if the tile header could be decoded. In case the decoding should end, the returned value is still true.\nreturning false may be the result of a shortage of memory or an internal error."]
     pub fn opj_read_tile_header(
         p_codec: *mut opj_codec_t,
         p_stream: *mut opj_stream_t,
@@ -1061,7 +1061,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Reads a tile data. This function is compulsory and allows one to decode tile data. opj_read_tile_header should be called before.\nThe user may need to refer to the image got by opj_read_header to understand the size being taken by the tile.\nNote: opj_decode_tile_data() should not be used together with opj_set_decoded_components().\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_tile_index` -    the index of the tile being decoded, this should be the value set by opj_read_tile_header.\n* `p_data` -          pointer to a memory block that will hold the decoded data.\n* `p_data_size` -     size of p_data. p_data_size should be bigger or equal to the value set by opj_read_tile_header.\n* `p_stream` -        the stream to decode.\n# Returns\n\ntrue            if the data could be decoded."]
+    #[doc = "Reads a tile data. This function is compulsory and allows one to decode tile data. opj_read_tile_header should be called before.\nThe user may need to refer to the image got by opj_read_header to understand the size being taken by the tile.\nNote: opj_decode_tile_data() should not be used together with opj_set_decoded_components().\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `p_tile_index` -    the index of the tile being decoded, this should be the value set by opj_read_tile_header.\n* `p_data` -          pointer to a memory block that will hold the decoded data.\n* `p_data_size` -     size of p_data. p_data_size should be bigger or equal to the value set by opj_read_tile_header.\n* `p_stream` -        the stream to decode.\n\n# Returns\n\ntrue            if the data could be decoded."]
     pub fn opj_decode_tile_data(
         p_codec: *mut opj_codec_t,
         p_tile_index: OPJ_UINT32,
@@ -1071,15 +1071,15 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Creates a J2K/JP2 compression structure\n# Arguments\n\n* `format` -      Coder to select\n# Returns\n\nReturns a handle to a compressor if successful, returns NULL otherwise"]
+    #[doc = "Creates a J2K/JP2 compression structure\n\n# Arguments\n\n* `format` -      Coder to select\n\n# Returns\n\nReturns a handle to a compressor if successful, returns NULL otherwise"]
     pub fn opj_create_compress(format: OPJ_CODEC_FORMAT) -> *mut opj_codec_t;
 }
 extern "C" {
-    #[doc = "Set encoding parameters to default values, that means :\n<ul>\n<li>Lossless\n<li>1 tile\n<li>Size of precinct : 2^15 x 2^15 (means 1 precinct)\n<li>Size of code-block : 64 x 64\n<li>Number of resolutions: 6\n<li>No SOP marker in the codestream\n<li>No EPH marker in the codestream\n<li>No sub-sampling in x or y direction\n<li>No mode switch activated\n<li>Progression order: LRCP\n<li>No index file\n<li>No ROI upshifted\n<li>No offset of the origin of the image\n<li>No offset of the origin of the tiles\n<li>Reversible DWT 5-3\n</ul>\n# Arguments\n\n* `parameters` - Compression parameters"]
+    #[doc = "Set encoding parameters to default values, that means :\n<ul>\n<li>Lossless\n<li>1 tile\n<li>Size of precinct : 2^15 x 2^15 (means 1 precinct)\n<li>Size of code-block : 64 x 64\n<li>Number of resolutions: 6\n<li>No SOP marker in the codestream\n<li>No EPH marker in the codestream\n<li>No sub-sampling in x or y direction\n<li>No mode switch activated\n<li>Progression order: LRCP\n<li>No index file\n<li>No ROI upshifted\n<li>No offset of the origin of the image\n<li>No offset of the origin of the tiles\n<li>Reversible DWT 5-3\n</ul>\n\n# Arguments\n\n* `parameters` - Compression parameters"]
     pub fn opj_set_default_encoder_parameters(parameters: *mut opj_cparameters_t);
 }
 extern "C" {
-    #[doc = "Setup the encoder parameters using the current image and using user parameters.\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `parameters` -    Compression parameters\n* `image` -         Input filled image"]
+    #[doc = "Setup the encoder parameters using the current image and using user parameters.\n\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `parameters` -    Compression parameters\n* `image` -         Input filled image"]
     pub fn opj_setup_encoder(
         p_codec: *mut opj_codec_t,
         parameters: *mut opj_cparameters_t,
@@ -1087,14 +1087,14 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Specify extra options for the encoder.\nThis may be called after opj_setup_encoder() and before opj_start_compress()\nThis is the way to add new options in a fully ABI compatible way, without\nextending the opj_cparameters_t structure.\nCurrently supported options are:\n<ul>\n<li>PLT=YES/NO. Defaults to NO. If set to YES, PLT marker segments,\nindicating the length of each packet in the tile-part header, will be\nwritten. Since 2.4.0</li>\n<li>TLM=YES/NO. Defaults to NO (except for Cinema and IMF profiles).\nIf set to YES, TLM marker segments, indicating the length of each\ntile-part part will be written. Since 2.4.0</li>\n<li>GUARD_BITS=value. Number of guard bits in [0,7] range. Default value is 2.\n1 may be used sometimes (like in SMPTE DCP Bv2.1 Application Profile for 2K images).\nSince 2.5.0</li>\n</ul>\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `p_options` -     Compression options. This should be a NULL terminated\narray of strings. Each string is of the form KEY=VALUE.\n# Returns\n\nOPJ_TRUE in case of success.\n> **Since** 2.4.0"]
+    #[doc = "Specify extra options for the encoder.\nThis may be called after opj_setup_encoder() and before opj_start_compress()\nThis is the way to add new options in a fully ABI compatible way, without\nextending the opj_cparameters_t structure.\nCurrently supported options are:\n<ul>\n<li>PLT=YES/NO. Defaults to NO. If set to YES, PLT marker segments,\nindicating the length of each packet in the tile-part header, will be\nwritten. Since 2.4.0</li>\n<li>TLM=YES/NO. Defaults to NO (except for Cinema and IMF profiles).\nIf set to YES, TLM marker segments, indicating the length of each\ntile-part part will be written. Since 2.4.0</li>\n<li>GUARD_BITS=value. Number of guard bits in [0,7] range. Default value is 2.\n1 may be used sometimes (like in SMPTE DCP Bv2.1 Application Profile for 2K images).\nSince 2.5.0</li>\n</ul>\n\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `p_options` -     Compression options. This should be a NULL terminated\narray of strings. Each string is of the form KEY=VALUE.\n\n# Returns\n\nOPJ_TRUE in case of success.\n> **Since** 2.4.0"]
     pub fn opj_encoder_set_extra_options(
         p_codec: *mut opj_codec_t,
         p_options: *const *const ::std::os::raw::c_char,
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Start to compress the current image.\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `p_image` -       Input filled image\n* `p_stream` -      Input stgream"]
+    #[doc = "Start to compress the current image.\n\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `p_image` -       Input filled image\n* `p_stream` -      Input stgream"]
     pub fn opj_start_compress(
         p_codec: *mut opj_codec_t,
         p_image: *mut opj_image_t,
@@ -1102,19 +1102,19 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "End to compress the current image.\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `p_stream` -      Input stgream"]
+    #[doc = "End to compress the current image.\n\n# Arguments\n\n* `p_codec` -       Compressor handle\n* `p_stream` -      Input stgream"]
     pub fn opj_end_compress(p_codec: *mut opj_codec_t, p_stream: *mut opj_stream_t) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Encode an image into a JPEG-2000 codestream\n# Arguments\n\n* `p_codec` -       compressor handle\n* `p_stream` -      Output buffer stream\n# Returns\n\nReturns true if successful, returns false otherwise"]
+    #[doc = "Encode an image into a JPEG-2000 codestream\n\n# Arguments\n\n* `p_codec` -       compressor handle\n* `p_stream` -      Output buffer stream\n\n# Returns\n\nReturns true if successful, returns false otherwise"]
     pub fn opj_encode(p_codec: *mut opj_codec_t, p_stream: *mut opj_stream_t) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Destroy Codestream information after compression or decompression\n# Arguments\n\n* `cstr_info` - Codestream information structure"]
+    #[doc = "Destroy Codestream information after compression or decompression\n\n# Arguments\n\n* `cstr_info` - Codestream information structure"]
     pub fn opj_destroy_cstr_info(cstr_info: *mut *mut opj_codestream_info_v2_t);
 }
 extern "C" {
-    #[doc = "Dump the codec information into the output stream\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `info_flag` -       type of information dump.\n* `output_stream` -   output stream where dump the information gotten from the codec.\n"]
+    #[doc = "Dump the codec information into the output stream\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n* `info_flag` -       type of information dump.\n* `output_stream` -   output stream where dump the information gotten from the codec.\n"]
     pub fn opj_dump_codec(
         p_codec: *mut opj_codec_t,
         info_flag: OPJ_INT32,
@@ -1122,26 +1122,26 @@ extern "C" {
     );
 }
 extern "C" {
-    #[doc = "Get the codestream information from the codec\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n# Returns\n\na pointer to a codestream information structure.\n"]
+    #[doc = "Get the codestream information from the codec\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n\n# Returns\n\na pointer to a codestream information structure.\n"]
     pub fn opj_get_cstr_info(p_codec: *mut opj_codec_t) -> *mut opj_codestream_info_v2_t;
 }
 extern "C" {
-    #[doc = "Get the codestream index from the codec\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n# Returns\n\na pointer to a codestream index structure.\n"]
+    #[doc = "Get the codestream index from the codec\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n\n# Returns\n\na pointer to a codestream index structure.\n"]
     pub fn opj_get_cstr_index(p_codec: *mut opj_codec_t) -> *mut opj_codestream_index_t;
 }
 extern "C" {
     pub fn opj_destroy_cstr_index(p_cstr_index: *mut *mut opj_codestream_index_t);
 }
 extern "C" {
-    #[doc = "Get the JP2 file information from the codec FIXME\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n# Returns\n\na pointer to a JP2 metadata structure.\n"]
+    #[doc = "Get the JP2 file information from the codec FIXME\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n\n# Returns\n\na pointer to a JP2 metadata structure.\n"]
     pub fn opj_get_jp2_metadata(p_codec: *mut opj_codec_t) -> *mut opj_jp2_metadata_t;
 }
 extern "C" {
-    #[doc = "Get the JP2 file index from the codec FIXME\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n# Returns\n\na pointer to a JP2 index structure.\n"]
+    #[doc = "Get the JP2 file index from the codec FIXME\n\n# Arguments\n\n* `p_codec` -         the jpeg2000 codec.\n\n# Returns\n\na pointer to a JP2 index structure.\n"]
     pub fn opj_get_jp2_index(p_codec: *mut opj_codec_t) -> *mut opj_jp2_index_t;
 }
 extern "C" {
-    #[doc = "Sets the MCT matrix to use.\n# Arguments\n\n* `parameters` -      the parameters to change.\n* `pEncodingMatrix` - the encoding matrix.\n* `p_dc_shift` -      the dc shift coefficients to use.\n* `pNbComp` -         the number of components of the image.\n# Returns\n\ntrue if the parameters could be set."]
+    #[doc = "Sets the MCT matrix to use.\n\n# Arguments\n\n* `parameters` -      the parameters to change.\n* `pEncodingMatrix` - the encoding matrix.\n* `p_dc_shift` -      the dc shift coefficients to use.\n* `pNbComp` -         the number of components of the image.\n\n# Returns\n\ntrue if the parameters could be set."]
     pub fn opj_set_MCT(
         parameters: *mut opj_cparameters_t,
         pEncodingMatrix: *mut OPJ_FLOAT32,
