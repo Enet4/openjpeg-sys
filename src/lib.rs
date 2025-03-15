@@ -1,5 +1,8 @@
-#[allow(bad_style)]
-mod ffi;
+#![allow(non_camel_case_types, non_snake_case)]
+
+mod ffi {
+    include!(concat!(env!("OUT_DIR"), "/ffi.rs"));
+}
 
 pub use crate::ffi::*;
 
