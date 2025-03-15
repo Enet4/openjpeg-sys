@@ -115,17 +115,17 @@ pub use self::CINEMA_MODE as OPJ_CINEMA_MODE;
 #[doc = "Progression order"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum PROG_ORDER {
-    #[doc = "< place-holder"]
+    #[doc = "place-holder"]
     OPJ_PROG_UNKNOWN = -1,
-    #[doc = "< layer-resolution-component-precinct order"]
+    #[doc = "layer-resolution-component-precinct order"]
     OPJ_LRCP = 0,
-    #[doc = "< resolution-layer-component-precinct order"]
+    #[doc = "resolution-layer-component-precinct order"]
     OPJ_RLCP = 1,
-    #[doc = "< resolution-precinct-component-layer order"]
+    #[doc = "resolution-precinct-component-layer order"]
     OPJ_RPCL = 2,
-    #[doc = "< precinct-component-resolution-layer order"]
+    #[doc = "precinct-component-resolution-layer order"]
     OPJ_PCRL = 3,
-    #[doc = "< component-precinct-resolution-layer order"]
+    #[doc = "component-precinct-resolution-layer order"]
     OPJ_CPRL = 4,
 }
 #[doc = "Progression order"]
@@ -134,19 +134,19 @@ pub use self::PROG_ORDER as OPJ_PROG_ORDER;
 #[doc = "Supported image color spaces"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum COLOR_SPACE {
-    #[doc = "< not supported by the library"]
+    #[doc = "not supported by the library"]
     OPJ_CLRSPC_UNKNOWN = -1,
-    #[doc = "< not specified in the codestream"]
+    #[doc = "not specified in the codestream"]
     OPJ_CLRSPC_UNSPECIFIED = 0,
-    #[doc = "< sRGB"]
+    #[doc = "sRGB"]
     OPJ_CLRSPC_SRGB = 1,
-    #[doc = "< grayscale"]
+    #[doc = "grayscale"]
     OPJ_CLRSPC_GRAY = 2,
-    #[doc = "< YUV"]
+    #[doc = "YUV"]
     OPJ_CLRSPC_SYCC = 3,
-    #[doc = "< e-YCC"]
+    #[doc = "e-YCC"]
     OPJ_CLRSPC_EYCC = 4,
-    #[doc = "< CMYK"]
+    #[doc = "CMYK"]
     OPJ_CLRSPC_CMYK = 5,
 }
 #[doc = "Supported image color spaces"]
@@ -155,17 +155,17 @@ pub use self::COLOR_SPACE as OPJ_COLOR_SPACE;
 #[doc = "Supported codec"]
 #[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
 pub enum CODEC_FORMAT {
-    #[doc = "< place-holder"]
+    #[doc = "place-holder"]
     OPJ_CODEC_UNKNOWN = -1,
-    #[doc = "< JPEG-2000 codestream : read/write"]
+    #[doc = "JPEG-2000 codestream : read/write"]
     OPJ_CODEC_J2K = 0,
-    #[doc = "< JPT-stream (JPEG 2000, JPIP) : read only"]
+    #[doc = "JPT-stream (JPEG 2000, JPIP) : read only"]
     OPJ_CODEC_JPT = 1,
-    #[doc = "< JP2 file format : read/write"]
+    #[doc = "JP2 file format : read/write"]
     OPJ_CODEC_JP2 = 2,
-    #[doc = "< JPP-stream (JPEG 2000, JPIP) : to be coded"]
+    #[doc = "JPP-stream (JPEG 2000, JPIP) : to be coded"]
     OPJ_CODEC_JPP = 3,
-    #[doc = "< JPX file format (JPEG 2000 Part-2) : to be coded"]
+    #[doc = "JPX file format (JPEG 2000 Part-2) : to be coded"]
     OPJ_CODEC_JPX = 4,
 }
 #[doc = "Supported codec"]

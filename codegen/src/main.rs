@@ -46,6 +46,9 @@ struct ProcessComments;
 
 impl ParseCallbacks for ProcessComments {
     fn process_comment(&self, comment: &str) -> Option<String> {
+        // remove trailing "<"
+        // (it can happen in the syntax /**< ... */)
+        let comment = comment.trim_start_matches("< ");
         match doxygen_bindgen::transform(comment) {
             Ok(res) => Some(res),
             Err(err) => {
