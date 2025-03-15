@@ -1,13 +1,36 @@
 use bindgen::callbacks::ParseCallbacks;
 use bindgen::RustTarget;
 use std::env;
+use std::io::BufRead;
 
 fn main() {
     generate_bindings();
 }
 
+fn rust_target_version() -> RustTarget {
+    // try to find it in ../Cargo.toml
+    match std::fs::File::open("../Cargo.toml") {
+        Ok(cargo_toml_file) => {
+            let cargo_toml_reader = std::io::BufReader::new(cargo_toml_file);
+
+            for line in cargo_toml_reader.lines() {
+                let line = line.unwrap();
+                if line.starts_with("rust-version") {
+                    // get version, remove quotes
+                    return line.split('"').nth(1).unwrap().parse().unwrap();
+                }
+            }
+        }
+        Err(_) => {
+            // ignore
+        }
+    }
+    // if not found, use the environment variable from Cargo build
+    env::var("CARGO_PKG_RUST_VERSION").unwrap().parse().unwrap()
+}
+
 fn generate_bindings() {
-    let rust_target: RustTarget = env::var("CARGO_PKG_RUST_VERSION").unwrap().parse().unwrap();
+    let rust_target: RustTarget = rust_target_version();
 
     let bindings = bindgen::Builder::default()
         .header("../vendor/src/lib/openjp2/openjpeg.h")
