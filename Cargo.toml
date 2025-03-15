@@ -2,11 +2,11 @@
 name = "openjpeg-sys"
 description = "OpenJPEG (JPEG 2000) FFI bindings"
 version = "1.0.11"
-authors = ["Kornel <kornel@geekhood.net>"]
+authors = ["Kornel <kornel@geekhood.net>", "Eduardo Pinho <enet4mikeenet@gmail.com>"]
 edition = "2021"
 license = "BSD-2-Clause"
 links = "openjpeg"
-repository = "https://github.com/kornelski/openjpeg-sys"
+repository = "https://github.com/Enet4/openjpeg-sys"
 homepage = "https://lib.rs/openjpeg-sys"
 documentation = "https://docs.rs/openjpeg-sys"
 readme = "README.md"
@@ -29,4 +29,4 @@ threads = []
 parallel = ["cc/parallel"]
 
 [badges]
-maintenance = { status = "as-is" }
+maintenance = { status = "passively-maintained" }
