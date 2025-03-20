@@ -7,7 +7,5 @@ edition = "2021"
 
 [dependencies]
 bindgen = "0.71.1"
+doxygen-bindgen = "0.1.3"
 
-[dependencies.doxygen-bindgen]
-git = "https://github.com/Enet4/doxygen-bindgen"
-branch = "imp/new_paragraph_after_html"
