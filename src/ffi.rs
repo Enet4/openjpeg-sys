@@ -973,7 +973,7 @@ extern "C" {
     ) -> OPJ_BOOL;
 }
 extern "C" {
-    #[doc = "Set strict decoding parameter for this decoder.  If strict decoding is enabled, partial bit\nstreams will fail to decode.  If strict decoding is disabled, the decoder will decode partial\nbitstreams as much as possible without erroring\n\n# Arguments\n\n* `p_codec` -       decompressor handler\n* `strict` -        OPJ_TRUE to enable strict decoding, OPJ_FALSE to disable\n\n# Returns\n\ntrue         if the decoder is correctly set"]
+    #[doc = "Set strict decoding parameter for this decoder.\nIf strict decoding is enabled, partial bit streams will fail to decode, and\nthe check for invalid TPSOT values added in https://github.com/uclouvain/openjpeg/pull/514\nwill be disabled.\nIf strict decoding is disabled, the decoder will decode partial\nbitstreams as much as possible without erroring, and the TPSOT fixing logic\nwill be enabled.\n\n# Arguments\n\n* `p_codec` -       decompressor handler\n* `strict` -        OPJ_TRUE to enable strict decoding, OPJ_FALSE to disable\n\n# Returns\n\ntrue         if the decoder is correctly set"]
     pub fn opj_decoder_set_strict_mode(p_codec: *mut opj_codec_t, strict: OPJ_BOOL) -> OPJ_BOOL;
 }
 extern "C" {
