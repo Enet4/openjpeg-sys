@@ -1,0 +1,11 @@
+[package]
+name = "openjpeg-sys-codegen"
+description = "Binding generator project for openjpeg-sys"
+publish = false
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+bindgen = "0.71.1"
+doxygen-bindgen = "0.1.3"
+
